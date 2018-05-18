@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  treasure-generator:
+    build: ../treasure-generator
+    image: treasure-generator
+    ports:
+      - "5001:80"
+    volumes:
+      - ../treasure-generator:/app
+  dice-roller:
+    build: ../dice-roller
+    image: dice-roller
+    ports:
+      - "5000:80"
+    volumes:
+      - ../dice-roller:/app
