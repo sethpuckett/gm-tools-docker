@@ -5,26 +5,19 @@ services:
     build: ../treasure-generator
     image: treasure-generator
     ports:
-      - "5001:80"
+      - "5501:80"
     volumes:
       - ../treasure-generator:/app
-  dice-roller:
-    build: ../dice-roller
-    image: dice-roller
-    ports:
-      - "5000:80"
-    volumes:
-      - ../dice-roller:/app
   dice-db:
     image: postgres
     volumes:
       - ../gm-dice/tmp/db:/var/lib/postgresql/data
   dice:
     build: ../gm-dice
-    command: bundle exec rails s -p 3000 -b '0.0.0.0'
+    command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
     volumes:
       - ../gm-dice:/app
     ports:
-      - "3000:3000"
+      - "4000:3000"
     depends_on:
       - dice-db
