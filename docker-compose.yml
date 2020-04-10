@@ -2,7 +2,9 @@ version: '3'
 
 services:
   dice-db:
-    image: postgres
+    image: postgres:12
+    environment:
+      POSTGRES_PASSWORD: postgres
     volumes:
       - ../gm-dice/tmp/db:/var/lib/postgresql/data
   dice:
@@ -15,7 +17,9 @@ services:
     depends_on:
       - dice-db
   treasure-db:
-    image: postgres
+    image: postgres:12
+    environment:
+      POSTGRES_PASSWORD: postgres
     volumes:
       - ../gm-treasure/tmp/db:/var/lib/postgresql/data
   treasure:
