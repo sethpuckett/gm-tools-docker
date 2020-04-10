@@ -6,14 +6,14 @@ GM Tools is a suite of services for game masters running role-playing games. The
 
 Documentation for specific APIs can be found in their respective repositories.
 
-* [GM Dice](https://github.com/sethpuckett/gm-dice): Generate dice rolls; port `4000`
+* [GM Dice](https://github.com/sethpuckett/gm-dice): Generate dice rolls  `port 4000`
   * ex: `localhost:4000/dice/roll`
-* [GM Treasure](https://github.com/sethpuckett/gm-treasure): Generate treasure hauls; port `4010`
+* [GM Treasure](https://github.com/sethpuckett/gm-treasure): Generate treasure hauls - `port 4010`
   * ex: `localhost:4010/treasure/individual?cr=1`
 
 ## Installation and Initial Setup
 
-The GM Tools suite is designed as a set of interconnected microservices. The suite is Dockerized, so deploying and running all the services is a simple matter. You only need to follow these steps during initial setup. See [Command Commands](#common-commands) for instructions on starting the services after installation.
+The GM Tools suite is designed as a set of interconnected microservices. The suite is Dockerized, so deploying and running all the services is a simple matter. You only need to follow these steps during initial setup. See [Command Commands](#common-commands) for instructions on starting and stopping the services after installation.
 
 Clone all the microservice repositories:
 ```
