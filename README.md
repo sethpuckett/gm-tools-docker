@@ -62,26 +62,34 @@ Stop and remove containers, networks, images, and volumes:
 docker-compose down
 ```
 
-Access Rails console in Dice service
+The commands below are for individual services; e.g. `dice`, `treasure`
+
+Access Rails console in service
 ```
-docker-compose run dice rails c
+docker-compose run [service] rails c
+```
+
+Run `rubocop`
+```
+docker-compose run [service] rubocop
+```
+
+Run `rspec` tests
+```
+docker-compose run [service] rspec
 ```
 
 ## Additional Notes
 
 This Docker setup is based on the [Compose and Rails](https://docs.docker.com/compose/rails/) guide from Docker. This guide provides additional information and background about the configuration.
 
-Changes to the `docker-compose.yml` file require a rebuild of the suite with
+Changes to the `docker-compose.yml` file require a rebuild of the suite with:
 ```
 docker-compose up --build
 ```
 
-Changes to the `Gemfiles` for individual services require a `bundle install` to update `Gemfile.lock` and sync the file to the host:
+Changes to the `Gemfiles` for individual services also require a `bundle install` to update `Gemfile.lock` and sync the file to the host:
 ```
 docker-compose run [service] bundle install
-```
-
-E.g.
-```
-docker-compose run dice bundle install
+docker-compose build
 ```
