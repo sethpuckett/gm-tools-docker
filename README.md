@@ -64,7 +64,7 @@ docker-compose down
 ---
 The commands below are for individual services; e.g. `dice`, `treasure`
 
-Access Rails console in service
+Access Rails console
 ```
 docker-compose run [service] rails c
 ```
