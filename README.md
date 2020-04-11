@@ -6,14 +6,12 @@ GM Tools is a suite of services for game masters running role-playing games. The
 
 Documentation for specific APIs can be found in their respective repositories.
 
-* [GM Dice](https://github.com/sethpuckett/gm-dice): Generate dice rolls  `port 4000`
-  * ex: `localhost:4000/dice/roll`
-* [GM Treasure](https://github.com/sethpuckett/gm-treasure): Generate treasure hauls - `port 4010`
-  * ex: `localhost:4010/treasure/individual?cr=1`
+* [GM Dice](https://github.com/sethpuckett/gm-dice): Generate dice rolls - port `4000`
+* [GM Treasure](https://github.com/sethpuckett/gm-treasure): Generate treasure hauls - port `4010`
 
 ## Installation and Initial Setup
 
-The GM Tools suite is designed as a set of interconnected microservices. The suite is Dockerized, so deploying and running all the services is a simple matter. You only need to follow these steps during initial setup. See [Command Commands](#common-commands) for instructions on starting and stopping the services after installation.
+The GM Tools suite is designed as a set of interconnected microservices. The suite is Dockerized, so deploying and running all the services is a simple matter. You only need to follow these steps during initial setup. See [Common Commands](#common-commands) for instructions on starting and stopping the services after installation.
 
 Clone all the microservice repositories:
 ```
@@ -67,4 +65,23 @@ docker-compose down
 Access Rails console in Dice service
 ```
 docker-compose run dice rails c
+```
+
+## Additional Notes
+
+This Docker setup is based on the [Compose and Rails](https://docs.docker.com/compose/rails/) guide from Docker. This guide provides additional information and background about the configuration.
+
+Changes to the `docker-compose.yml` file require a rebuild of the suite with
+```
+docker-compose up --build
+```
+
+Changes to the `Gemfiles` for individual services require a `bundle install` to update `Gemfile.lock` and sync the file to the host:
+```
+docker-compose run [service] bundle install
+```
+
+E.g.
+```
+docker-compose run dice bundle install
 ```
