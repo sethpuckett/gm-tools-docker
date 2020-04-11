@@ -85,7 +85,7 @@ This Docker setup is based on the [Compose and Rails](https://docs.docker.com/co
 
 Changes to the `docker-compose.yml` file require a rebuild of the suite with:
 ```
-docker-compose up --build
+docker-compose build
 ```
 
 Changes to the `Gemfiles` for individual services also require a `bundle install` to update `Gemfile.lock` and sync the file to the host:
