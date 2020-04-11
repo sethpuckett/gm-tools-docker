@@ -61,7 +61,7 @@ Stop and remove containers, networks, images, and volumes:
 ```
 docker-compose down
 ```
-
+---
 The commands below are for individual services; e.g. `dice`, `treasure`
 
 Access Rails console in service
