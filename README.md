@@ -8,6 +8,7 @@ Documentation for specific APIs can be found in their respective repositories.
 
 * [GM Dice](https://github.com/sethpuckett/gm-dice): Generate dice rolls - port `4000`
 * [GM Treasure](https://github.com/sethpuckett/gm-treasure): Generate treasure hauls - port `4010`
+* [GM World](https://github.com/sethpuckett/gm-world): Generate resources related to world building - port `4020`
 
 ## Installation and Initial Setup
 
@@ -17,7 +18,8 @@ Clone all the microservice repositories:
 ```
 git clone https://github.com/sethpuckett/gm-tools-docker.git && \
 git clone https://github.com/sethpuckett/gm-dice.git && \
-git clone https://github.com/sethpuckett/gm-treasure.git
+git clone https://github.com/sethpuckett/gm-treasure.git && \
+git clone https://github.com/sethpuckett/gm-world.git
 ```
 
 Navigate to the directory for `gm-tools-docker`:
@@ -38,7 +40,8 @@ docker-compose up -d
 Initialize application databases:
 ```
 docker-compose run dice rake db:create db:setup && \
-docker-compose run treasure rake db:create db:setup
+docker-compose run treasure rake db:create db:setup && \
+docker-compose run world rake db:create db:setup
 ```
 
 At this point the containers are up and running and the APIs are accessible via the ports listed in [APIs](#apis).

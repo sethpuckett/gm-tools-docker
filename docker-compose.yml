@@ -31,3 +31,18 @@ services:
       - "4010:3000"
     depends_on:
       - treasure-db
+  world-db:
+    image: postgres:12
+    environment:
+      POSTGRES_PASSWORD: postgres
+    volumes:
+      - ../gm-world/tmp/db:/var/lib/postgresql/data
+  world:
+    build: ../gm-world
+    command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
+    volumes:
+      - ../gm-world:/app
+    ports:
+      - "4020:3000"
+    depends_on:
+      - world-db
